@@ -1,0 +1,19 @@
+{
+  "name": "nexttome",
+  "version": "1.0.0",
+  "description": "google maps api",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franko1307/NextToMe.git"
+  },
+  "author": "Francisco Enrique Córdova González",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Franko1307/NextToMe/issues"
+  },
+  "homepage": "https://github.com/Franko1307/NextToMe#readme"
+}
