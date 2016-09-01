@@ -71,7 +71,8 @@ module.exports = function(passport) {
 
       User.findOne({ 'local.email' :  email }, function(err, user) {
           // if there are any errors, return the error before anything else
-          
+
+
           if (err)
               return done(err);
 
@@ -84,10 +85,9 @@ module.exports = function(passport) {
 
               var newUser = new User();
               newUser.local.email = email;
-              newUser.local.password = '5'
-              console.log(newUser);
+                            
               newUser.local.password = createHash(password);
-              console.log(newUser);
+
               newUser.save(function(err) {
                 if (err){
                   console.log('Error in Saving user: '+err);

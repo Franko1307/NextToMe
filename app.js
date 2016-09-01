@@ -11,18 +11,29 @@ require('./config/passport')(passport);
 mongoose.connect(configDB.url);
 
 
+
 var app = express();
 
 app.use(express.static(__dirname + '/public'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
-app.use(expressSession({secret: ''}));
+
+
+app.use(expressSession({
+  cookie : {
+    maxAge: 3600000 // see below
+  },
+  secret: 'Habia una vez una galleta de melon que sabia a sandia',
+  resave: true,
+  saveUninitialized: true
+}))
+
 app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.set('view engine', 'jade')
+app.set('view engine', 'ejs');
 
 require('./routes/principal.js')(app,passport)
 
