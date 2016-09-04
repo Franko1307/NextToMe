@@ -18,6 +18,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
+app.use(flash());
 
 
 app.use(expressSession({
@@ -37,6 +38,6 @@ app.set('view engine', 'ejs');
 
 require('./routes/principal.js')(app,passport)
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
+app.listen(8080, function () {
+  console.log('Example app listening on port 8080!');
 });

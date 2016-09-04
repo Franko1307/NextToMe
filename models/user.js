@@ -1,12 +1,24 @@
+'use strict';
+
 var mongoose = require('mongoose');
 
-// define the schema for our user model
-var userSchema = mongoose.Schema({
-    local            : {
-      email: { type: String, required: true, unique: true },
-      password: { type: String, required: true },
-    }
+var UserSchema = new require('mongoose').Schema({
+  username: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  fullName: { type: String, required: true},
+  gender: {type: String, require: true, num: ["Male", "Female"]},
+});
+
+UserSchema.plugin(require('mongoose-role'), {
+  roles: ['public', 'user', ,'company', 'admin'],
+  accessLevels: {
+    'public': ['public', 'user', 'admin'],
+    'user': ['user', 'admin'],
+    'company' : ['user','admin'],
+    'admin': ['admin']
+  }
 });
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', UserSchema);
