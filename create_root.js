@@ -1,5 +1,15 @@
 var mongoose = require('mongoose');
 
+var bCrypt   = require('bcrypt-nodejs');
+
+//Chequeo si la contra está chida
+
+//Crea una contra chida
+var createHash = function(password){
+ return bCrypt.hashSync(password, bCrypt.genSaltSync(10), null);
+}
+
+
 mongoose.connect('mongodb://localhost/nexttomedb');
 
 var db = mongoose.connection;
@@ -28,16 +38,31 @@ UserSchema.plugin(require('mongoose-role'), {
   }
 });
 
+
+
 var root = mongoose.model('User', UserSchema);
+
+root.find({}, function(err, users) {
+    var userMap = {};
+
+    users.forEach(function(user) {
+      user.remove(function(err,removed) {
+        console.log('removido nigga');
+      });
+    });
+
+  });
 
 var admin = new root();
 
 admin.username = 'admin';
-admin.password = 'PingyBurrito_903';
+admin.password = createHash('PingyBurrito_903');
 admin.email = 'franciscogonzalez1307@gmail.com';
 admin.fullName = 'Francisco Enrique Córdova González';
 admin.gender = 'Male';
 admin.role = 'admin';
+
+console.log(mongoose.models);
 
 admin.save(function (err, admin) {
   if (err) {

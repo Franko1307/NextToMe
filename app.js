@@ -5,8 +5,11 @@ var passport = require('passport');
 var flash = require('connect-flash')
 var configDB = require('./config/database.js');
 
-var bodyParser = require( 'body-parser' ); //problema nlcs con credenciales
 
+var app = express(); //Express
+
+var bodyParser = require( 'body-parser' ); //problema nlcs con credenciales
+app.use( bodyParser.urlencoded({ extended: true }) );
 
 require('./config/passport')(passport);  //Métodos de validación de passport
 
@@ -19,14 +22,14 @@ db.once('open', function() {
 });
 
 
-var app = express(); //Express
+
 
 app.use(express.static(__dirname + '/public')) //Hacemos estático la carpeta public
 
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use( bodyParser.urlencoded({ extended: true }) );
+
 
 
 app.set('view engine', 'ejs');
