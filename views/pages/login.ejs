@@ -17,6 +17,9 @@
     <!-- LOGIN FORM -->
     <% include ../import/login_form.ejs %>
     <!-- REGISTRATION FORM -->
+    <div id="error-message">
+      <p id = "p-de-error"></p>
+    </div>
     <div id="wrapper" style="height: 100vh;">
       ¿Usuario o Compañía?
       <div style="float:left; margin-left: 25vh;">
@@ -28,6 +31,7 @@
     </div>
     <!-- FORGOT PASSWORD FORM -->
     <% include ../import/forgot_password_form.ejs %>
+    <script src="/js/login/main.js"></script>
 
   </body>
 </html>
