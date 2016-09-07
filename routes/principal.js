@@ -31,9 +31,9 @@ module.exports = function (app, passport) {
     if ( req.user.role === 'company' ) res.redirect('/company');
     if ( req.user.role === 'admin' ) res.redirect('/admin');
   });
-  app.post('/user-sign-up', passport.authenticate('local-sign-up', {
+  app.post('/user-sign-up', passport.authenticate('local-sign-up-user', {
     successRedirect: '/',
-    failureRedirect: '/sign-up',
+    failureRedirect: '/login',
   }));
 
   app.get('/*', function(app, res) {

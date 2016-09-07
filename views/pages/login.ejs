@@ -1,4 +1,5 @@
 <html>
+
   <head>
     <!-- All the files that are required -->
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
@@ -14,132 +15,19 @@
   <body>
     <!-- Where all the magic happens -->
     <!-- LOGIN FORM -->
-
-
-
-    <div class="text-center" style="padding:50px 0; height:100vh; padding-top: 25vh;">
-
-
-    	<div class="logo">login</div>
-
-    	<!-- Main Form -->
-    	<div class="login-form-1">
-        <% if ( message.length > 0 ) { %>
-          <div class="alert alert-danger">
-            <strong>Error: </strong> <%= message %>
-          </div>
-        <% } %>
-    		<form method ='post' id="login-form" class="text-left" action= '/login'>
-    			<div class="login-form-main-message"></div>
-    			<div class="main-login-form">
-    				<div class="login-group">
-    					<div class="form-group">
-    						<label for="lg_username" class="sr-only">Username</label>
-    						<input type="text" required="true" class="form-control" id="lg_username" name="email" placeholder="username">
-    					</div>
-    					<div class="form-group">
-    						<label for="lg_password" class="sr-only">Password</label>
-    						<input type="password" required="true" class="form-control" id="lg_password" name="password" placeholder="password">
-    					</div>
-    					<div class="form-group login-group-checkbox">
-    						<input type="checkbox" id="lg_remember" name="lg_remember">
-    						<label for="lg_remember">remember</label>
-    					</div>
-    				</div>
-    				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-    			</div>
-    			<div class="etc-login-form">
-    				<p>forgot your password? <a href="#forgot-password">click here</a></p>
-    				<p>new user? <a href="#new-user">create new account</a></p>
-    			</div>
-    		</form>
-    	</div>
-    	<!-- end:Main Form -->
-    </div>
-
+    <% include ../import/login_form.ejs %>
     <!-- REGISTRATION FORM -->
-    <section id = 'new-user'>
-      <div class="text-center" style="padding:50px 0; height:100vh; padding-top: 25vh;">
-      	<div class="logo">register</div>
-      	<!-- Main Form -->
-      	<div class="login-form-1">
-      		<form id="register-form" class="text-left">
-      			<div class="login-form-main-message"></div>
-      			<div class="main-login-form">
-      				<div class="login-group">
-      					<div class="form-group">
-      						<label for="reg_username" class="sr-only">Email address</label>
-      						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
-      					</div>
-      					<div class="form-group">
-      						<label for="reg_password" class="sr-only">Password</label>
-      						<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
-      					</div>
-      					<div class="form-group">
-      						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-      						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-      					</div>
-
-      					<div class="form-group">
-      						<label for="reg_email" class="sr-only">Email</label>
-      						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-      					</div>
-      					<div class="form-group">
-      						<label for="reg_fullname" class="sr-only">Full Name</label>
-      						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-      					</div>
-
-      					<div class="form-group login-group-checkbox">
-      						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-      						<label for="male">male</label>
-
-      						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-      						<label for="female">female</label>
-      					</div>
-
-      					<div class="form-group login-group-checkbox">
-      						<input type="checkbox" class="" id="reg_agree" name="reg_agree">
-      						<label for="reg_agree">i agree with <a href="#">terms</a></label>
-      					</div>
-      				</div>
-      				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      			</div>
-      			<div class="etc-login-form">
-      				<p>already have an account? <a href="#">login here</a></p>
-      			</div>
-      		</form>
-      	</div>
-      	<!-- end:Main Form -->
+    <div id="wrapper" style="height: 100vh;">
+      ¿Usuario o Compañía?
+      <div style="float:left; margin-left: 25vh;">
+        <% include ../import/user_registration_form.ejs %>
       </div>
-    </section>
+      <div style="float:right; margin-right: 20vh;">
+        <% include ../import/company_registration_form.ejs %>
+      </div>
+    </div>
     <!-- FORGOT PASSWORD FORM -->
-    <section id = 'forgot-password'>
-      <div class="text-center" style="padding:50px 0; height:100vh; padding-top: 25vh;">
-      	<div class="logo">forgot password</div>
-      	<!-- Main Form -->
-      	<div class="login-form-1">
-      		<form id="forgot-password-form" class="text-left">
-      			<div class="etc-login-form">
-      				<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
-      			</div>
-      			<div class="login-form-main-message"></div>
-      			<div class="main-login-form">
-      				<div class="login-group">
-      					<div class="form-group">
-      						<label for="fp_email" class="sr-only">Email address</label>
-      						<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
-      					</div>
-      				</div>
-      				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      			</div>
-      			<div class="etc-login-form">
-      				<p>already have an account? <a href="#">login here</a></p>
-      				<p>new user? <a href="#new-user">create new account</a></p>
-      			</div>
-      		</form>
-      	</div>
-      	<!-- end:Main Form -->
-    </section>
-</div>
+    <% include ../import/forgot_password_form.ejs %>
+
   </body>
 </html>
