@@ -1,145 +1,174 @@
-<html>
-  <head>
-    <!-- All the files that are required -->
-    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!DOCTYPE html>
+<html lang="en">
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-    <link type = 'text/css' rel = 'Stylesheet' href='/css/login/style.css'>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  </head>
-  <body>
-    <!-- Where all the magic happens -->
-    <!-- LOGIN FORM -->
+    <head>
 
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Login &amp; Register Templates</title>
 
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
 
-    <div class="text-center" style="padding:50px 0; height:100vh; padding-top: 25vh;">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
-    	<div class="logo">login</div>
+    </head>
 
-    	<!-- Main Form -->
-    	<div class="login-form-1">
-        <% if ( message.length > 0 ) { %>
-          <div class="alert alert-danger">
-            <strong>Error: </strong> <%= message %>
-          </div>
-        <% } %>
-    		<form method ='post' id="login-form" class="text-left" action= '/login'>
-    			<div class="login-form-main-message"></div>
-    			<div class="main-login-form">
-    				<div class="login-group">
-    					<div class="form-group">
-    						<label for="lg_username" class="sr-only">Username</label>
-    						<input type="text" required="true" class="form-control" id="lg_username" name="email" placeholder="username">
-    					</div>
-    					<div class="form-group">
-    						<label for="lg_password" class="sr-only">Password</label>
-    						<input type="password" required="true" class="form-control" id="lg_password" name="password" placeholder="password">
-    					</div>
-    					<div class="form-group login-group-checkbox">
-    						<input type="checkbox" id="lg_remember" name="lg_remember">
-    						<label for="lg_remember">remember</label>
-    					</div>
-    				</div>
-    				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-    			</div>
-    			<div class="etc-login-form">
-    				<p>forgot your password? <a href="#forgot-password">click here</a></p>
-    				<p>new user? <a href="#new-user">create new account</a></p>
-    			</div>
-    		</form>
-    	</div>
-    	<!-- end:Main Form -->
-    </div>
+    <body>
 
-    <!-- REGISTRATION FORM -->
-    <section id = 'new-user'>
-      <div class="text-center" style="padding:50px 0; height:100vh; padding-top: 25vh;">
-      	<div class="logo">register</div>
-      	<!-- Main Form -->
-      	<div class="login-form-1">
-      		<form id="register-form" class="text-left">
-      			<div class="login-form-main-message"></div>
-      			<div class="main-login-form">
-      				<div class="login-group">
-      					<div class="form-group">
-      						<label for="reg_username" class="sr-only">Email address</label>
-      						<input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
-      					</div>
-      					<div class="form-group">
-      						<label for="reg_password" class="sr-only">Password</label>
-      						<input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
-      					</div>
-      					<div class="form-group">
-      						<label for="reg_password_confirm" class="sr-only">Password Confirm</label>
-      						<input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-      					</div>
+        <!-- Top content -->
+        <div class="top-content">
 
-      					<div class="form-group">
-      						<label for="reg_email" class="sr-only">Email</label>
-      						<input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-      					</div>
-      					<div class="form-group">
-      						<label for="reg_fullname" class="sr-only">Full Name</label>
-      						<input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-      					</div>
+            <div class="inner-bg">
+                <div class="container">
 
-      					<div class="form-group login-group-checkbox">
-      						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-      						<label for="male">male</label>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Bootstrap</strong> Login &amp; Register Forms</h1>
+                            <div class="description">
+                            	<p>
+	                            	This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap.
+	                            	Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>,
+	                            	customize and use it as you like!
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
 
-      						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-      						<label for="female">female</label>
-      					</div>
+                    <div class="row">
+                        <div class="col-sm-5">
 
-      					<div class="form-group login-group-checkbox">
-      						<input type="checkbox" class="" id="reg_agree" name="reg_agree">
-      						<label for="reg_agree">i agree with <a href="#">terms</a></label>
-      					</div>
-      				</div>
-      				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      			</div>
-      			<div class="etc-login-form">
-      				<p>already have an account? <a href="#">login here</a></p>
-      			</div>
-      		</form>
-      	</div>
-      	<!-- end:Main Form -->
-      </div>
-    </section>
-    <!-- FORGOT PASSWORD FORM -->
-    <section id = 'forgot-password'>
-      <div class="text-center" style="padding:50px 0; height:100vh; padding-top: 25vh;">
-      	<div class="logo">forgot password</div>
-      	<!-- Main Form -->
-      	<div class="login-form-1">
-      		<form id="forgot-password-form" class="text-left">
-      			<div class="etc-login-form">
-      				<p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
-      			</div>
-      			<div class="login-form-main-message"></div>
-      			<div class="main-login-form">
-      				<div class="login-group">
-      					<div class="form-group">
-      						<label for="fp_email" class="sr-only">Email address</label>
-      						<input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
-      					</div>
-      				</div>
-      				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      			</div>
-      			<div class="etc-login-form">
-      				<p>already have an account? <a href="#">login here</a></p>
-      				<p>new user? <a href="#new-user">create new account</a></p>
-      			</div>
-      		</form>
-      	</div>
-      	<!-- end:Main Form -->
-    </section>
-</div>
-  </body>
+                        	<div class="form-box">
+	                        	<div class="form-top">
+	                        		<div class="form-top-left">
+	                        			<h3>Login to our site</h3>
+	                            		<p>Enter username and password to log on:</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-lock"></i>
+	                        		</div>
+	                            </div>
+	                            <div class="form-bottom">
+				                    <form role="form" action="" method="post" class="login-form">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-username">Username</label>
+				                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-password">Password</label>
+				                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+				                        </div>
+				                        <button type="submit" class="btn">Sign in!</button>
+				                    </form>
+			                    </div>
+		                    </div>
+
+		                	<div class="social-login">
+	                        	<h3>...or login with:</h3>
+	                        	<div class="social-login-buttons">
+		                        	<a class="btn btn-link-2" href="#">
+		                        		<i class="fa fa-facebook"></i> Facebook
+		                        	</a>
+		                        	<a class="btn btn-link-2" href="#">
+		                        		<i class="fa fa-twitter"></i> Twitter
+		                        	</a>
+		                        	<a class="btn btn-link-2" href="#">
+		                        		<i class="fa fa-google-plus"></i> Google Plus
+		                        	</a>
+	                        	</div>
+	                        </div>
+
+                        </div>
+
+                        <div class="col-sm-1 middle-border"></div>
+                        <div class="col-sm-1"></div>
+
+                        <div class="col-sm-5">
+
+                        	<div class="form-box">
+                        		<div class="form-top">
+	                        		<div class="form-top-left">
+	                        			<h3>Sign up now</h3>
+	                            		<p>Fill in the form below to get instant access:</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-pencil"></i>
+	                        		</div>
+	                            </div>
+	                            <div class="form-bottom">
+				                    <form role="form" action="" method="post" class="registration-form">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">First name</label>
+				                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-last-name">Last name</label>
+				                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-email">Email</label>
+				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+				                        </div>
+				                        <div class="form-group">
+				                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
+				                        	<textarea name="form-about-yourself" placeholder="About yourself..."
+				                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+				                        </div>
+				                        <button type="submit" class="btn">Sign me up!</button>
+				                    </form>
+			                    </div>
+                        	</div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+        	<div class="container">
+        		<div class="row">
+
+        			<div class="col-sm-8 col-sm-offset-2">
+        				<div class="footer-border"></div>
+        				<p>Made by Anli Zaimi at <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>
+        					having a lot of fun. <i class="fa fa-smile-o"></i></p>
+        			</div>
+
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+        <!--[if lt IE 10]>
+            <script src="assets/js/placeholder.js"></script>
+        <![endif]-->
+
+    </body>
+
 </html>
