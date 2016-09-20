@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Login &amp; Register Templates</title>
+        <title>Next To Me</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -41,12 +41,10 @@
 
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login &amp; Register Forms</h1>
+                            <h1><strong> Next To Me </strong></h1>
                             <div class="description">
                             	<p>
-	                            	This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap.
-	                            	Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>,
-	                            	customize and use it as you like!
+	                            	Este es un proyecto elaborado por <a href="www.github.com/franko1307">Francisco Enrique Córdova González</a> que se encarga de encontrar las ofertas más cercanas a ti
                             	</p>
                             </div>
                         </div>
@@ -58,30 +56,30 @@
                         	<div class="form-box">
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Login to our site</h3>
-	                            		<p>Enter username and password to log on:</p>
+	                        			<h3>¿Ya tienes una cuenta?</h3>
+	                            		<p>Ingresa tu usuario y contraseña para iniciar sesión:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-lock"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="" method="post" class="login-form">
+				                    <form role="form" action="/user-sign-up" method="post" class="login-form">
 				                    	<div class="form-group">
-				                    		<label class="sr-only" for="form-username">Username</label>
+				                    		<label class="sr-only" for="form-username">Nombre de usuario</label>
 				                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-password">Password</label>
+				                        	<label class="sr-only" for="form-password">Contraseña</label>
 				                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
 				                        </div>
-				                        <button type="submit" class="btn">Sign in!</button>
+				                        <button type="submit" class="btn">Entrar!</button>
 				                    </form>
 			                    </div>
 		                    </div>
 
 		                	<div class="social-login">
-	                        	<h3>...or login with:</h3>
+	                        	<h3>...o prueba con: (no funcionando)</h3>
 	                        	<div class="social-login-buttons">
 		                        	<a class="btn btn-link-2" href="#">
 		                        		<i class="fa fa-facebook"></i> Facebook
@@ -94,9 +92,7 @@
 		                        	</a>
 	                        	</div>
 	                        </div>
-
                         </div>
-
                         <div class="col-sm-1 middle-border"></div>
                         <div class="col-sm-1"></div>
 
@@ -105,35 +101,42 @@
                         	<div class="form-box">
                         		<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Sign up now</h3>
-	                            		<p>Fill in the form below to get instant access:</p>
+	                        			<h3>Regístrate</h3>
+	                            		<p> Ingresa los campos:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-pencil"></i>
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="" method="post" class="registration-form">
+				                    <form role="form" action="/user-sign-up" method="post" class="registration-form">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-first-name">First name</label>
-				                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
-				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-last-name">Last name</label>
-				                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+				                        	<input type="text" name="form-name" placeholder="Nombre..." class="form-first-name form-control" id="form-first-name">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
 				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
 				                        </div>
+                                <div class="form-group">
+				                        	<label class="sr-only" for="form-email">Email</label>
+				                        	<input type="text" name="form-password" placeholder="Contraseña..." class="form-email form-control" id="form-email">
+				                        </div>
+                                <div class="form-group">
+				                        	<label class="sr-only" for="form-email">Email</label>
+				                        	<input type="text" placeholder="Confirme contraseña..." class="form-email form-control" id="form-email">
+				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
-				                        	<textarea name="form-about-yourself" placeholder="About yourself..."
+				                        	<textarea name="form-about-yourself" placeholder="Ingresa el tipo de ofertas en el que estarías interesado en un futuro..."
 				                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
 				                        </div>
-				                        <button type="submit" class="btn">Sign me up!</button>
+				                        <button type="submit" class="btn">Regístrame!</button>
 				                    </form>
 			                    </div>
+                          <div class="social-login">
+                            <a href="#wea"><h3>¿O quizá quieres registrar una empresa y publicar tus propias ofertas?</h3></a>
+                          </div>
                         	</div>
 
                         </div>
@@ -151,8 +154,8 @@
 
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
-        				<p>Made by Anli Zaimi at <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>
-        					having a lot of fun. <i class="fa fa-smile-o"></i></p>
+        				    Encontrando lo mejor cerca de ti <i class="fa fa-smile-o"></i></p>
+                <div class="footer-border"></div>
         			</div>
 
         		</div>

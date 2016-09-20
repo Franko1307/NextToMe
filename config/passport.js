@@ -71,12 +71,14 @@ module.exports = function(passport) {
   }));
   passport.use('local-sign-up-user', new LocalStrategy({
       // by default, local strategy uses username and password, we will override with email
-      usernameField : 'username',
-      passwordField : 'password',
+      usernameField : 'form-name',
+      passwordField : 'form-password',
       passReqToCallback : true, // allows us to pass back the entire request to the callback
   },
   function(req, user, password, done) { // callback with email and password from our form
-      
+
+      console.log(req.body);
+
       /*
       username: { type: String, required: true, unique: true },
       password: { type: String, required: true },
@@ -86,28 +88,24 @@ module.exports = function(passport) {
       */
       // find a user whose email is the same as the forms email
       // we are checking to see if the user trying to login already exists
-      User.findOne({ 'username' :  user }, function(err, user) {
+      User.findOne({ 'email' :  req.body['form-email'] }, function(err, user) {
           // if there are any errors, return the error before anything else
 
           if (err)
               return done(err);
-
 
           if (user) {
               console.log('User already exists');
               return done(null, false, {msg: 'User already exists'} );
           } else {
               console.log('Pronto te añadiré ');
-              // if there is no user with that email
-              // create the user
 
               var user = new User();
 
               user.username = user;
               user.password = createHash(password);
-              user.email = req.body.email;
-              user.fullName = req.body.fullName;
-              user.gender =   req.body.reg_gender;
+              user.email = req.body['form-email'];
+              user.wea = req.body['form-about-yourself'];
               user.role = 'user';
 
             user.save(function(err) {
@@ -116,8 +114,8 @@ module.exports = function(passport) {
                   throw err;
                 }
                 console.log('User Registration succesful');
-                console.log(newUser);
-                return done(null, newUser, {msg: 'User registred'});
+                console.log(user);
+                return done(null, user, {msg: 'User registred'});
               });
             }
       });

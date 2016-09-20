@@ -1,19 +1,33 @@
-var express = require('express');
-var expressSession = require('express-session');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var flash = require('connect-flash')
+var express = require('express');  //
+var session = require('express-session'); // Para manejar las sesiones
+var flash      = require('connect-flash'); //
+var bodyParser = require('body-parser'); //---
+var mongoose   = require('mongoose');
+var passport   = require('passport');
 var configDB = require('./config/database.js');
 
+var app = express();
 
-var app = express(); //Express
 
-var bodyParser = require( 'body-parser' ); //problema nlcs con credenciales
-app.use( bodyParser.urlencoded({ extended: true }) );
+mongoose.connect(configDB.url);
 
-require('./config/passport')(passport);  //Métodos de validación de passport
+app.use(express.static(__dirname + '/public'))
 
-mongoose.connect(configDB.url); //Conectamos a la base de datos
+app.use(session({
+  //store: new SessionStore({path: __dirname+'/tmp/sessions'}),
+  secret: 'pingy burrtio taquito 123 no hackear pls arigato',
+  resave: true,
+  saveUninitialized: true
+}))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
+app.set('view engine', 'ejs');
+
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -22,29 +36,8 @@ db.once('open', function() {
 });
 
 
-
-
-app.use(express.static(__dirname + '/public')) //Hacemos estático la carpeta public
-
-app.use(flash());
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-
-app.set('view engine', 'ejs');
-
-app.use(expressSession({
-  cookie : {
-    maxAge: 3600000 // see below
-  },
-  secret: 'Habia una vez una galleta de melon que sabia a sandia',
-  resave: true,
-  saveUninitialized: true
-}))
-
-//rutas
-require('./routes/principal.js')(app,passport)
+require('./routes/principal.js')(app,passport);
+require('./config/passport')(passport);
 
 app.listen(8080, function () {
   console.log('Example app listening on port 8080!');
