@@ -29,23 +29,22 @@ module.exports = function(passport) {
 
   passport.use('local-login', new LocalStrategy({
       // by default, local strategy uses username and password, we will override with email
-      usernameField : 'username',
-      passwordField : 'password',
+      usernameField : 'form-username',
+      passwordField : 'form-password',
       passReqToCallback : true // allows us to pass back the entire request to the callback
   },
   function(req, username, password, done) { // callback with email and password from our form
 
-      // find a user whose email is the same as the forms email
-      console.log('antes');
+      console.log(req.body);
+
       User.find({}, function(err, users) {
           var userMap = {};
-
           users.forEach(function(user) {
             console.log(user);
           });
-
         });
-
+      console.log('-------------------');
+      return done(null,false)
       // we are checking to see if the user trying to login already exists
       User.findOne({ 'username' :  username }, function(err, user) {
           // if there are any errors, return the error before anything else
@@ -79,13 +78,6 @@ module.exports = function(passport) {
 
       console.log(req.body);
 
-      /*
-      username: { type: String, required: true, unique: true },
-      password: { type: String, required: true },
-      email: { type: String, required: true, unique: true },
-      fullName: { type: String, required: true},
-      gender: {type: String, require: true, num: ["Male", "Female"]},
-      */
       // find a user whose email is the same as the forms email
       // we are checking to see if the user trying to login already exists
       User.findOne({ 'email' :  req.body['form-email'] }, function(err, user) {
@@ -98,24 +90,25 @@ module.exports = function(passport) {
               console.log('User already exists');
               return done(null, false, {msg: 'User already exists'} );
           } else {
-              console.log('Pronto te añadiré ');
 
-              var user = new User();
+              var n_user = new User();
 
-              user.username = user;
-              user.password = createHash(password);
-              user.email = req.body['form-email'];
-              user.wea = req.body['form-about-yourself'];
-              user.role = 'user';
+              n_user.username = req.body['form-name'];
+              n_user.password = createHash(req.body['form-password']);
+              n_user.email    = req.body['form-email'];
+              n_user.wea      = req.body['form-about-yourself'];
+              n_user.role     = 'user';
 
-            user.save(function(err) {
+              console.log(n_user);
+
+            n_user.save(function(err) {
                 if (err){
                   console.log('Error in Saving user: '+err);
                   throw err;
                 }
                 console.log('User Registration succesful');
-                console.log(user);
-                return done(null, user, {msg: 'User registred'});
+                console.log(n_user);
+                return done(null, n_user, {msg: 'User registred'});
               });
             }
       });
