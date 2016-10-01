@@ -24,8 +24,6 @@ var UserSchema = new require('mongoose').Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  fullName: { type: String, required: true},
-  gender: {type: String, require: true, num: ["Male", "Female"]},
 });
 
 UserSchema.plugin(require('mongoose-role'), {
@@ -43,8 +41,6 @@ UserSchema.plugin(require('mongoose-role'), {
 var root = mongoose.model('User', UserSchema);
 
 root.find({}, function(err, users) {
-    var userMap = {};
-
     users.forEach(function(user) {
       user.remove(function(err,removed) {
         console.log('removido nigga');
@@ -58,8 +54,6 @@ var admin = new root();
 admin.username = 'admin';
 admin.password = createHash('PingyBurrito_903');
 admin.email = 'franciscogonzalez1307@gmail.com';
-admin.fullName = 'Francisco Enrique Córdova González';
-admin.gender = 'Male';
 admin.role = 'admin';
 
 console.log(mongoose.models);
@@ -71,5 +65,4 @@ admin.save(function (err, admin) {
   else {
     console.log('YEEI');
   }
-
 });

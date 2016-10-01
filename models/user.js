@@ -6,7 +6,6 @@ var UserSchema = new require('mongoose').Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  wea: { type: String, required: true}  
 });
 
 UserSchema.plugin(require('mongoose-role'), {

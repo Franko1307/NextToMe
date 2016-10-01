@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/user.style.css" type="text/css">
+
+    <title>Spotter - Universal Directory Listing HTML Template</title>
+
+</head>
+
+<body onunload="" class="page-subpage page-register navigation-top-header" id="page-top">
+
+<!-- Outer Wrapper-->
+<div id="outer-wrapper">
+    <!-- Inner Wrapper -->
+    <div id="inner-wrapper">
+        <!-- Navigation-->
+          <% include ../import/navegation.ejs %>
+        <!-- end Navigation-->
+        <!-- Page Canvas-->
+        <div id="page-canvas">
+            <!--Off Canvas Navigation-->
+            <nav class="off-canvas-navigation">
+                <header>Navigation</header>
+                <div class="main-navigation navigation-off-canvas"></div>
+            </nav>
+            <!--end Off Canvas Navigation-->
+
+            <!--Page Content-->
+            <div id="page-content">
+                <section class="container">
+                    <div class="block">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                                <header>
+                                    <h1 class="page-title">Registro</h1>
+                                </header>
+                                <% if ( errorMessage.length > 0 ) { %>
+                                  <div class="alert alert-danger">
+                                    <strong>¡Error!</strong> <%= errorMessage %>
+                                  </div>
+                                <% } %>
+
+                                <form role="form" id="form-register" method="post" action="?">
+                                    <div class="form-group">
+                                        <label for="form-register-full-name">Nombre Completo:</label>
+                                        <input type="text" class="form-control" id="form-register-full-name" name="form-name" required>
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label for="form-register-email">Correo:</label>
+                                        <input type="email" class="form-control" id="form-register-email" name="form-email" required>
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label for="form-register-password">Contraseña:</label>
+                                        <input type="password" class="form-control" id="form-register-password" name="form-password" required>
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                        <label for="form-register-confirm-password">Confirme Contraseña:</label>
+                                        <input type="password" class="form-control" id="form-register-confirm-password" name="form-confirm-password" required>
+                                    </div><!-- /.form-group -->
+                                    <div class="checkbox pull-left">
+                                        <label>
+                                            <input type="checkbox" name="newsletter"> Noticias
+                                        </label>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <button type="submit" class="btn pull-right btn-default" id="account-submit">Crear cuenta</button>
+                                    </div><!-- /.form-group -->
+                                </form>
+                                <hr>
+                                <div class="center">
+                                    <figure class="note">Al crear la cuenta usted está aceptando nuestros <a href="terms-conditions.html" class="link"> términos y condiciones</a></figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- /.block-->
+            </div>
+            <!-- end Page Content-->
+        </div>
+        <!-- end Page Canvas-->
+        <!--Page Footer-->
+          <% include ../import/index-directory-footer.ejs %>
+        <!--end Page Footer-->
+    </div>
+    <!-- end Inner Wrapper -->
+</div>
+<!-- end Outer Wrapper-->
+
+<script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="assets/js/before.load.js"></script>
+<script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="assets/js/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+<!--[if lte IE 9]>
+<script type="text/javascript" src="assets/js/ie-scripts.js"></script>
+<![endif]-->
+</body>
+</html>

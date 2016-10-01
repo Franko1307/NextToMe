@@ -27,48 +27,42 @@ module.exports = function(passport) {
     });
   });
 
-  passport.use('local-login', new LocalStrategy({
+  passport.use('local-sign-in', new LocalStrategy({
       // by default, local strategy uses username and password, we will override with email
-      usernameField : 'form-username',
+      usernameField : 'form-email',
       passwordField : 'form-password',
       passReqToCallback : true // allows us to pass back the entire request to the callback
   },
   function(req, username, password, done) { // callback with email and password from our form
 
-      console.log(req.body);
 
+      console.log('Voy a imprimir todos los users:');
       User.find({}, function(err, users) {
-          var userMap = {};
           users.forEach(function(user) {
             console.log(user);
           });
         });
       console.log('-------------------');
-      return done(null,false)
+
       // we are checking to see if the user trying to login already exists
-      User.findOne({ 'username' :  username }, function(err, user) {
+      User.findOne({ 'email' :  username }, function(err, user) {
           // if there are any errors, return the error before anything else
-          console.log('despues');
           if (err)
               return done(err);
 
           // if no user is found, return the message
           if (!user)
-              return done(null, false, { message: 'No user found' } );
-          console.log(user);
+              return done(null, false, { message: 'El correo no está registrado' } );
           // if the user is found but the password is wrong
           if (!isValidPassword(user,password)) {
-            console.log('justo antes');
-            return done(null, false, { message: 'Invalid password' } );
+            return done(null, false, { message: 'La contraseña es incorrecta' } );
           }
-
-
-          // all is well, return successful user
+          // all is well, return successful user          
           return done(null, user);
       });
 
   }));
-  passport.use('local-sign-up-user', new LocalStrategy({
+  passport.use('local-register', new LocalStrategy({
       // by default, local strategy uses username and password, we will override with email
       usernameField : 'form-name',
       passwordField : 'form-password',
@@ -76,19 +70,17 @@ module.exports = function(passport) {
   },
   function(req, user, password, done) { // callback with email and password from our form
 
-      console.log(req.body);
 
-      // find a user whose email is the same as the forms email
-      // we are checking to see if the user trying to login already exists
+      if ( req.body['form-password'] !== req.body['form-confirm-password'] )
+        return done(null, false, { message : 'Error, las contraseñas no coinciden'});
+
       User.findOne({ 'email' :  req.body['form-email'] }, function(err, user) {
           // if there are any errors, return the error before anything else
-
           if (err)
               return done(err);
 
           if (user) {
-              console.log('User already exists');
-              return done(null, false, {msg: 'User already exists'} );
+              return done(null, false, { message : 'El correo ya está registrado'} );
           } else {
 
               var n_user = new User();
@@ -96,7 +88,6 @@ module.exports = function(passport) {
               n_user.username = req.body['form-name'];
               n_user.password = createHash(req.body['form-password']);
               n_user.email    = req.body['form-email'];
-              n_user.wea      = req.body['form-about-yourself'];
               n_user.role     = 'user';
 
               console.log(n_user);
@@ -108,7 +99,7 @@ module.exports = function(passport) {
                 }
                 console.log('User Registration succesful');
                 console.log(n_user);
-                return done(null, n_user, {msg: 'User registred'});
+                return done(null, n_user);
               });
             }
       });

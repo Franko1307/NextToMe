@@ -1,13 +1,14 @@
 module.exports = function (app, passport) {
   app.get('/', function(req, res) {
-		res.render('pages/index', {user: "Great User",title:"homepage"})
+    var obj = require("../public/assets/json/items.json");
+    res.render('pages/index-directory', {user: req.user})
 	})
-  app.get('/login',function(req, res){
+  app.get('/sign-in',function(req, res){
     if (req.isAuthenticated()) {
       res.redirect('/')
     }
     else {
-      res.render('pages/login' ,{ message: req.flash('error') });
+      res.render('pages/sign-in' ,{ errorMessage: req.flash('error'), user: null });
     }
   })
   app.get('/admin', isAuthenticated, function(req, res) {
@@ -21,15 +22,28 @@ module.exports = function (app, passport) {
     users.forEach(function(user) {
       userMap[user._id] = user;
     });
-    console.log(userMap);
     res.render('pages/admin', {users: userMap});
   });
 
   })
-  app.post('/login', passport.authenticate('local-login', { failureRedirect: '/login' , failureFlash: true }), function(req, res) {
+  app.get('/submit', isAuthenticated, function(req,res) {
+    res.render('pages/submit', {user: req.user});
+  })
+  app.get('/register', function(req,res) {
+    if (req.isAuthenticated()) { res.redirect('/')}
+    else { res.render('pages/register' ,{ errorMessage: req.flash('error') });}
+  });
+  app.get('/sign-out', function(req,res) {
+    req.logout();
+    res.redirect('/');
+  })
+  app.post('/sign-in', passport.authenticate('local-sign-in', { failureRedirect: '/sign-in' , failureFlash: true }), function(req, res) {
     if ( req.user.role === 'user' ) res.redirect('/user');
     if ( req.user.role === 'company' ) res.redirect('/company');
     if ( req.user.role === 'admin' ) res.redirect('/admin');
+  });
+  app.post('/register', passport.authenticate('local-register', { failureRedirect: '/register' , failureFlash: true }), function(req, res) {
+    res.redirect('/')
   });
   app.post('/user-sign-up', passport.authenticate('local-sign-up-user', {
     successRedirect: '/',
@@ -42,7 +56,9 @@ module.exports = function (app, passport) {
 }
 
 var isAuthenticated = function (req, res, next) {
-  if (req.isAuthenticated())
+  if (req.isAuthenticated()) {
     return next();
-  res.redirect('/login');
+  }
+
+  res.redirect('/sign-in');
 }
