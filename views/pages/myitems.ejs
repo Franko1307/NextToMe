@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/user.style.css" type="text/css">
+
+    <title>Spotter - Universal Directory Listing HTML Template</title>
+
+</head>
+
+<body onunload="" class="page-subpage page-register navigation-top-header" id="page-top">
+
+<!-- Outer Wrapper-->
+<div id="outer-wrapper">
+    <!-- Inner Wrapper -->
+    <div id="inner-wrapper">
+        <!-- Navigation-->
+          <% include ../import/navegation.ejs %>
+        <!-- end Navigation-->
+        <!-- Page Canvas-->
+        <div id="page-canvas">
+            <!--Off Canvas Navigation-->
+            <nav class="off-canvas-navigation">
+                <header>Navigation</header>
+                <div class="main-navigation navigation-off-canvas"></div>
+            </nav>
+            <!--end Off Canvas Navigation-->
+
+            <!--Page Content-->
+                <div id="page-content" class="page-content">
+                    <% include ../import/internavegation.ejs %>
+                    <section id="profile">
+                    <div class="page-profile container">
+                      <div class="row">
+                        <div class="col-md-3 col-sm-3">
+
+                    <aside id="sidebar">
+                      <ul class="navigation-sidebar list-unstyled">
+                                  <li class="active">
+                            <a href="http://themes.fruitfulcode.com/spotter/author/franciscogonzalez1307gmail-com/?profile-page=my_items&#038;items-status=all">
+                              <i class="fa fa-folder"></i>
+                              <span>All Items</span>
+                            </a>
+                          </li>
+                                  <li class="">
+                            <a href="http://themes.fruitfulcode.com/spotter/author/franciscogonzalez1307gmail-com/?profile-page=my_items&#038;items-status=approved">
+                              <i class="fa fa-check"></i>
+                              <span>Approved</span>
+                            </a>
+                          </li>
+                                  <li class="">
+                            <a href="http://themes.fruitfulcode.com/spotter/author/franciscogonzalez1307gmail-com/?profile-page=my_items&#038;items-status=in-queue">
+                              <i class="fa fa-clock-o"></i>
+                              <span>In Queue</span>
+                            </a>
+                          </li>
+                                  <li class="">
+                            <a href="http://themes.fruitfulcode.com/spotter/author/franciscogonzalez1307gmail-com/?profile-page=my_items&#038;items-status=is-hidden">
+                              <i class="fa fa-eye-slash"></i>
+                              <span>Hidden</span>
+                            </a>
+                          </li>
+                            <li><a href="#profile-items-submit-list" class="btn btn-large btn-default" style="opacity: 1;"  data-toggle="collapse" aria-expanded="false" aria-controls="profile-items-submit-list">
+                        Submit New Item		    </a>
+                    </li>
+                    <div class="collapse" id="profile-items-submit-list">
+                            <li>
+                        <a title="Hotels"  href="http://themes.fruitfulcode.com/spotter/submit-item/?cpts=1330">
+                            <i class="fa fa-hotel"></i>
+                            Hotels        </a></li>
+                                <li>
+                        <a title="Cars"  href="http://themes.fruitfulcode.com/spotter/submit-item/?cpts=1275">
+                            <i class="fa fa-car"></i>
+                            Cars        </a></li>
+                                <li>
+                        <a title="Restaurants"  href="http://themes.fruitfulcode.com/spotter/submit-item/?cpts=547">
+                            <i class="fa fa-glass"></i>
+                            Restaurants        </a></li>
+                                <li>
+                        <a title="Real Estate"  href="http://themes.fruitfulcode.com/spotter/submit-item/?cpts=194">
+                            <i class="fa fa-home"></i>
+                            Real Estate        </a></li>
+                                </div>
+                              </ul>
+                    </aside>
+
+                            </div><!-- /.col-md-3.col-sm-3 -->
+                        <div class="col-md-9 col-sm-9">
+                          <section id="items">
+
+
+
+
+                              <div id="id-1803" class="item list admin-view in-queue">
+                                <div class="image">
+                                  <a href="http://themes.fruitfulcode.com/spotter/restaurants/123-2/">
+                                                        <img src="http://themes.fruitfulcode.com/spotter/wp-content/themes/spotter/includes/theme/profile/res/item-no-thumb.jpg" alt="" />
+                                  </a>
+                                </div>
+                                <div class="wrapper">
+                                  <a href="http://themes.fruitfulcode.com/spotter/restaurants/123-2/"><h3>123</h3></a>
+                                  <figure></figure>
+                                    <div class="info">
+                                                            <div class="rating" data-rating="0"></div>
+                                    </div>
+                                </div>
+                                <div class="description">
+                                  <ul class="list-unstyled actions">
+                                    <li><a title="Make Featured" href="#" class="make-featured-item  " data-itemid="1803"><i class="fa fa-star-o"></i></a></li>
+                                    <li><a title="Edit Item"   href="http://themes.fruitfulcode.com/spotter/submit-item/?edit_item=1803"   class="edit"><i class="fa fa-pencil"></i></a></li>
+                                    <li><a title="Delete Item" href="#" data-toggle="modal" class="delete-item" data-itemid="1803"><i class="fa fa-trash"></i></a></li>
+                                  </ul>
+
+                      <div id="lmDeleteItemWnd" class="modal fade" tabindex="-1" role="dialog">
+                        <div class="modal-dialog modal-sm">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times"></i></button>
+                              <h4 class="modal-title">Delete item</h4>
+                            </div>
+                            <div class="modal-body">
+                              <p>Are you sure you want to delete item?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                              <button id="deleteItemAct" type="button" class="btn btn-primary">Delete</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                                      </div>
+                                <div class="ribbon in-queue"><i class="fa fa-clock-o"></i></div>
+                              </div>
+                              <!-- /.item-->
+
+
+
+
+
+                                      </section>
+                        </div><!-- /.col-md-9.col-sm-9 -->
+                      </div><!-- /.row -->
+                    </div><!-- /.page-profile -->
+                    </section><!-- /#profile -->
+                </div>
+
+                <!-- /.block-->
+            <!-- end Page Content-->
+        </div>
+        <!-- end Page Canvas-->
+        <!--Page Footer-->
+          <% include ../import/index-directory-footer.ejs %>
+        <!--end Page Footer-->
+    </div>
+    <!-- end Inner Wrapper -->
+</div>
+<!-- end Outer Wrapper-->
+
+<script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="assets/js/before.load.js"></script>
+<script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="assets/js/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+<!--[if lte IE 9]>
+<script type="text/javascript" src="assets/js/ie-scripts.js"></script>
+<![endif]-->
+</body>
+</html>

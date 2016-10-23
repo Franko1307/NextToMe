@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Franko1307/NextToMe/issues"
   },
-  "homepage": "https://github.com/Franko1307/NextToMe#readme"
+  "homepage": "https://github.com/Franko1307/NextToMe#readme",
+  "dependencies": {
+    "multer": "^1.2.0"
+  }
 }

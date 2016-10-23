@@ -123,37 +123,18 @@
                                 <section>
                                     <h3>Map</h3>
                                     <div id="map-simple" class="map-submit"></div>
-                                </section>
-                                <section>
-                                    <h3>Features</h3>
-                                    <ul class="list-unstyled checkboxes">
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="1">Free Parking</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="2">Cards Accepted</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="3">Wi-Fi</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="4">Air Condition</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="5">Reservations</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="6">Team-buildings</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="7">Places to seat</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="8">Winery</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="9">Draft Beer</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="10">LCD</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="11">Saloon</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="12">Free Access</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="13">Terrace</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="14">Minigolf</label></div></li>
-                                        <li><div class="checkbox"><label><input type="checkbox" name="features[]" value="15">Night Bar</label></div></li>
-                                    </ul>
+                                    <input id = 'lat' type="text" name="lat" value="holo">
+                                    <input id = 'lon' type="text" name="lon" value="holo">
                                 </section>
                                 <!--Menu-->
                                 <section>
-                                    <h3>Menu & Wine List</h3>
+                                    <h3>Oferta</h3>
                                     <div class="row">
                                         <div class="col-md-3">
                                             <!-- Nav tabs -->
                                             <ul class="nav nav-pills nav-stacked">
-                                                <li class="active"><a href="#tab-menu" data-toggle="tab">Menu</a></li>
-                                                <li><a href="#tab-daily-menu" data-toggle="tab">Daily Menu</a></li>
-                                                <li><a href="#tab-wine-list" data-toggle="tab">Wine List</a></li>
+                                                <li class="active"><a href="#tab-menu" data-toggle="tab">Comida</a></li>
+                                                <li><a href="#tab-wine-list" data-toggle="tab">Bebida</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-md-9">
@@ -281,10 +262,9 @@
                                 <!--Gallery-->
                                 <section>
                                     <h3>Gallery</h3>
-                                    <div id="file-submit" class="dropzone">
-                                        <input name="file" type="file" multiple>
-                                        <div class="dz-default dz-message"><span>Click or Drop Images Here</span></div>
-                                    </div>
+
+                                    <input type="file" name='recfile' placeholder="Select file"/>
+
                                 </section>
                                 <!--end Gallery-->
                                 <!--Opening Hours-->
@@ -387,10 +367,10 @@
                                 <hr>
                                 <section>
                                     <figure class="pull-left margin-top-15">
-                                        <p>By clicking “Submit & Pay” button you agree with <a href="terms-conditions.html" class="link">Terms & Conditions</a></p>
+                                        <p>By clicking “Submit ” button you agree with <a href="terms-conditions.html" class="link">Terms & Conditions</a></p>
                                     </figure>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-default pull-right" id="submit">Submit & Pay</button>
+                                        <button type="submit" class="btn btn-default pull-right" id="submit">Submit</button>
                                     </div>
                                     <!-- /.form-group -->
                                 </section>
@@ -399,32 +379,7 @@
                         </div>
                         <!--/.col-md-9-->
                         <!--Sidebar-->
-                        <div class="col-md-3">
-                            <aside id="sidebar">
-                                <div class="sidebar-box">
-                                    <h3>Payment</h3>
-                                    <div class="form-group">
-                                        <label for="package">Your Package</label>
-                                        <select name="package" id="package" class="framed">
-                                            <option value="">Select your package</option>
-                                            <option value="1">Free</option>
-                                            <option value="2">Silver</option>
-                                            <option value="3">Gold</option>
-                                            <option value="4">Platinum</option>
-                                        </select>
-                                    </div>
-                                    <!-- /.form-group -->
-                                    <h4>This package includes</h4>
-                                    <ul class="bullets">
-                                        <li>1 Property</li>
-                                        <li>1 Agent Profile</li>
-                                        <li class="disabled">Agency Profile</li>
-                                        <li class="disabled">Featured Properties</li>
-                                    </ul>
-                                </div>
-                            </aside>
-                            <!-- /#sidebar-->
-                        </div>
+
                         <!-- /.col-md-3-->
                         <!--end Sidebar-->
                     </div>
@@ -434,133 +389,7 @@
         </div>
         <!-- end Page Canvas-->
         <!--Page Footer-->
-        <footer id="page-footer">
-            <div class="inner">
-                <div class="footer-top">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <!--New Items-->
-                                <section>
-                                    <h2>New Items</h2>
-                                    <a href="item-detail.html" class="item-horizontal small">
-                                        <h3>Cash Cow Restaurante</h3>
-                                        <figure>63 Birch Street</figure>
-                                        <div class="wrapper">
-                                            <div class="image"><img src="assets/img/items/1.jpg" alt=""></div>
-                                            <div class="info">
-                                                <div class="type">
-                                                    <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                    <span>Restaurant</span>
-                                                </div>
-                                                <div class="rating" data-rating="4"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!--/.item-horizontal small-->
-                                    <a href="item-detail.html" class="item-horizontal small">
-                                        <h3>Blue Chilli</h3>
-                                        <figure>2476 Whispering Pines Circle</figure>
-                                        <div class="wrapper">
-                                            <div class="image"><img src="assets/img/items/2.jpg" alt=""></div>
-                                            <div class="info">
-                                                <div class="type">
-                                                    <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                    <span>Restaurant</span>
-                                                </div>
-                                                <div class="rating" data-rating="3"></div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <!--/.item-horizontal small-->
-                                </section>
-                                <!--end New Items-->
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <!--Recent Reviews-->
-                                <section>
-                                    <h2>Recent Reviews</h2>
-                                    <a href="item-detail.html#reviews" class="review small">
-                                        <h3>Max Five Lounge</h3>
-                                        <figure>4365 Bruce Street</figure>
-                                        <div class="info">
-                                            <div class="rating" data-rating="4"></div>
-                                            <div class="type">
-                                                <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non suscipit felis, sed sagittis tellus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras ac placerat mauris.
-                                        </p>
-                                    </a><!--/.review-->
-                                    <a href="item-detail.html#reviews" class="review small">
-                                        <h3>Saguaro Tavern</h3>
-                                        <figure>2476 Whispering Pines Circle</figure>
-                                        <div class="info">
-                                            <div class="rating" data-rating="5"></div>
-                                            <div class="type">
-                                                <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                                <span>Restaurant</span>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            Pellentesque mauris. Proin sit amet scelerisque risus. Donec semper semper erat ut mollis curabitur
-                                        </p>
-                                    </a>
-                                    <!--/.review-->
-                                </section>
-                                <!--end Recent Reviews-->
-                            </div>
-                            <div class="col-md-4 col-sm-4">
-                                <section>
-                                    <h2>About Us</h2>
-                                    <address>
-                                        <div>Max Five Lounge</div>
-                                        <div>63 Birch Street</div>
-                                        <div>Granada Hills, CA 91344</div>
-                                        <figure>
-                                            <div class="info">
-                                                <i class="fa fa-mobile"></i>
-                                                <span>818-832-5258</span>
-                                            </div>
-                                            <div class="info">
-                                                <i class="fa fa-phone"></i>
-                                                <span>+1 123 456 789</span>
-                                            </div>
-                                            <div class="info">
-                                                <i class="fa fa-globe"></i>
-                                                <a href="#">www.maxfivelounge.com</a>
-                                            </div>
-                                        </figure>
-                                    </address>
-                                    <div class="social">
-                                        <a href="#" class="social-button"><i class="fa fa-twitter"></i></a>
-                                        <a href="#" class="social-button"><i class="fa fa-facebook"></i></a>
-                                        <a href="#" class="social-button"><i class="fa fa-pinterest"></i></a>
-                                    </div>
-
-                                    <a href="contact.html" class="btn framed icon">Contact Us<i class="fa fa-angle-right"></i></a>
-                                </section>
-                            </div>
-                            <!--/.col-md-4-->
-                        </div>
-                        <!--/.row-->
-                    </div>
-                    <!--/.container-->
-                </div>
-                <!--/.footer-top-->
-                <div class="footer-bottom">
-                    <div class="container">
-                        <span class="left">(C) ThemeStarz, All rights reserved</span>
-                            <span class="right">
-                                <a href="#page-top" class="to-top roll"><i class="fa fa-angle-up"></i></a>
-                            </span>
-                    </div>
-                </div>
-                <!--/.footer-bottom-->
-            </div>
-        </footer>
+        <% include ../import/index-directory-footer.ejs %>
         <!--end Page Footer-->
     </div>
     <!-- end Inner Wrapper -->
@@ -585,8 +414,8 @@
 
 <script>
     $(window).load(function(){
-        var _latitude = 51.541599;
-        var _longitude = -0.112588;
+      var _latitude = 51.541216;
+      var _longitude = -0.095678;
         var draggableMarker = true;
         simpleMap(_latitude, _longitude,draggableMarker);
     });

@@ -57,7 +57,7 @@ module.exports = function(passport) {
           if (!isValidPassword(user,password)) {
             return done(null, false, { message: 'La contraseña es incorrecta' } );
           }
-          // all is well, return successful user          
+          // all is well, return successful user
           return done(null, user);
       });
 

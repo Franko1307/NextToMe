@@ -9,9 +9,15 @@ var configDB = require('./config/database.js');
 var app = express();
 
 
-mongoose.connect(configDB.url);
+var fs = require("fs");
+var multer = require('multer');
 
+
+mongoose.connect(configDB.url);
 app.use(express.static(__dirname + '/public'))
+var upload = multer({ dest: './uploads' });
+
+var type = upload.single('recfile');
 
 app.use(session({
   //store: new SessionStore({path: __dirname+'/tmp/sessions'}),
@@ -21,6 +27,7 @@ app.use(session({
 }))
 
 app.use(bodyParser.json())
+app.use(bodyParser({uploadDir:'/public/tmp/img/'}));
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.set('view engine', 'ejs');
@@ -32,12 +39,13 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
+
 db.once('open', function() {
   console.log('we are connected');
 });
 
 
-require('./routes/principal.js')(app,passport);
+require('./routes/principal.js')(app,passport,type,fs);
 require('./config/passport')(passport);
 
 app.listen(8080, function () {

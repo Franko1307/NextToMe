@@ -367,13 +367,26 @@
 <script>
     var _latitude = 51.541216;
     var _longitude = -0.095678;
-    var jsonPath = 'assets/json/items.json.txt';
+    var jsonPath = 'assets/json/items.json';
     // Load JSON data and create Google Maps
     function initialize() {
       $.getJSON(jsonPath)
           .done(function(json) {
-              createHomepageGoogleMap(_latitude,_longitude,json);
-              createHomepageFeatured(json);
+              if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position){
+                  var pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                  };
+                  //_latitude = pos.lat;
+                  //_longitude = pos.lng;
+                  createHomepageGoogleMap(_latitude,_longitude,json);
+                  createHomepageFeatured(json);
+                })
+              } else {
+                createHomepageGoogleMap(_latitude,_longitude,json);
+                createHomepageFeatured(json);
+              }
           })
           .fail(function( jqxhr, textStatus, error ) {
               console.log(error);
@@ -381,7 +394,6 @@
       ;
       // Set if language is RTL and load Owl Carousel
       $(window).load(function(){
-          console.log('mira mama');
           var rtl = false; // Use RTL
           initializeOwl(rtl);
       });

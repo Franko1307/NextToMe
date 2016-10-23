@@ -8,7 +8,7 @@
                 <ul class="main-navigation navigation-top-header"></ul>
                 <ul class="user-area">
                   <% if ( user ) { %>
-                    <li><a href="/user/" + <%- user.username %> > <%- user.username %> </a></li>
+                    <a class="promoted" href="/profile-<%- user.username  %>"><i class="fa fa-user"></i> <strong> <%- user.username %> </strong></a>
                     <li><a href="/sign-out"><strong> Desconectarse </strong></a></li>
                   <% } else { %>
                     <li><a href="/register"><strong>Registrarse</strong></a></li>

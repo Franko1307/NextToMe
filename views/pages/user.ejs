@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/user.style.css" type="text/css">
+
+    <title>Spotter - Universal Directory Listing HTML Template</title>
+
+</head>
+
+<body onunload="" class="page-subpage page-register navigation-top-header" id="page-top">
+
+<!-- Outer Wrapper-->
+<div id="outer-wrapper">
+    <!-- Inner Wrapper -->
+    <div id="inner-wrapper">
+        <!-- Navigation-->
+          <% include ../import/navegation.ejs %>
+        <!-- end Navigation-->
+        <!-- Page Canvas-->
+        <div id="page-canvas">
+            <!--Off Canvas Navigation-->
+            <nav class="off-canvas-navigation">
+                <header>Navigation</header>
+                <div class="main-navigation navigation-off-canvas"></div>
+            </nav>
+            <!--end Off Canvas Navigation-->
+
+            <!--Page Content-->
+                <div id="page-content" class="page-content">
+                    <% include ../import/internavegation.ejs %>
+                    <section id="profile">
+                      <div class="page-profile container">
+                        <div class="row">
+                          <div class="col-md-9">
+                            <form id="form-account-profile" class="form-account-profile" method="post" action="update-user">
+
+                              <div class="row">
+                                <div class="col-md-3 col-sm-3">
+                                  <h3><i class="fa fa-image"></i>Profile Picture</h3>
+                                  <div id="profile-picture" class="profile-picture">
+                                    <input type="hidden" id="form-account-avatar" 	 name="form-account-avatar"    value="" />
+                                    <input type="hidden" id="form-account-avatar-id" name="form-account-avatar-id" value="-1" />
+                                    <input id="form-account-avatar-file" name="form-account-avatar-file" class="file-loading" type="file" value="">
+                                  </div>
+                                </div>
+                                                  <div class="col-md-9 col-sm-9">
+                                  <section id="contact">
+                                    <h3><i class="fa fa-user"></i>Información Personal</h3>
+                                    <div class="row">
+                                      <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                          <label for="form-account-fname">Nombre Completo</label>
+                                          <input type="text" class="form-control" id="form-account-fname" name="form-account-name" required value="<%- user.fullname %>">
+                                        </div><!--/.form-group-->
+                                      </div>
+                                      <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                          <label for="form-account-phone">Teléfono</label>
+                                          <input type="text" class="form-control" id="form-account-phone" name="form-account-phone" value=" <%- user.phone %> ">
+                                        </div><!-- /.form-group -->
+                                      </div>
+                                      <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                          <label for="form-account-mobile">Celular</label>
+                                          <input type="text" class="form-control" id="form-account-mobile" name="form-account-mobile" value=" <%- user.mobile %> ">
+                                        </div><!-- /.form-group -->
+                                      </div>
+                                      <div class="col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                          <label for="form-account-email">Email</label>
+                                          <input type="text" class="form-control" id="form-account-email" name="form-account-email" value="francis_e_c_g@hotmail.com" disabled="disabled">
+                                        </div><!-- /.form-group -->
+                                      </div>
+                                    </div>
+                                  </section>
+
+                                  <section id="address-profile">
+                                    <h3><i class="fa fa-map-marker"></i>Ubicación</h3>
+
+                                    <div class="form-group">
+                                      <label for="form-account-state">Estado</label>
+                                      <input type="text" class="form-control" id="form-account-state" name="form-account-state" value= " <%- user.state %> ">
+                                    </div><!-- /.form-group -->
+                                    <div class="form-group">
+                                      <label for="form-account-city">Ciudad</label>
+                                      <input type="text" class="form-control" id="form-account-city" name="form-account-city" value=" <%- user.city %> ">
+                                    </div><!-- /.form-group -->
+                                    <div class="row">
+                                      <div class="col-md-8 col-sm-8">
+                                        <div class="form-group">
+                                          <label for="form-account-street">Dirección</label>
+                                          <input type="text" class="form-control" id="form-account-street" name="form-account-street" value=" <%- user.street %> ">
+                                        </div><!-- /.form-group -->
+                                      </div>
+                                      <div class="col-md-4 col-sm-4">
+                                        <div class="form-group">
+                                          <label for="form-account-zip">Código postal</label>
+                                          <input type="text" class="form-control" id="form-account-zip" name="form-account-zip" value=" <%- user.zip %> ">
+                                        </div><!-- /.form-group -->
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="form-account-add-address">Información adicional</label>
+                                      <input type="text" class="form-control" id="form-account-add-address" name="form-account-add-address" value=" <%- user.additional %> ">
+                                    </div><!-- /.form-group -->
+                                  </section>
+
+                                  <section id="about-me">
+                                    <h3><i class="fa fa-info-circle"></i>Acerca de mí</h3>
+                                    <div class="form-group">
+                                      <label for="form-contact-agent-message">Información acerca de mi</label>
+                                      <textarea class="form-control" id="form-contact-agent-message" rows="3" name="form-contact-agent-message" value = '<%- user.words %>'>  </textarea>
+                                    </div><!-- /.form-group -->
+                                  </section>
+
+                                  <section id="social">
+                                    <h3><i class="fa fa-share-alt"></i>Mis redes sociales</h3>
+
+                                      <div class="form-group">
+                                        <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+                                          <input type="text" class="form-control" id="account-social-facebook" name="account-social-facebook" value="<%- user.facebook %>">
+                                        </div>
+                                      </div><!-- /.form-group -->
+
+                                      <div class="form-group">
+                                        <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+                                          <input type="text" class="form-control" id="account-social-twitter" name="account-social-twitter" value="<%- user.twitter %>">
+                                        </div>
+                                      </div><!-- /.form-group -->
+
+                                      <div class="form-group">
+                                        <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+                                          <input type="text" class="form-control" id="account-social-googleplus" name="account-social-googleplus" value="<%- user.googlep %>">
+                                        </div>
+                                      </div><!-- /.form-group -->
+
+                                      <div class="form-group">
+                                        <div class="input-group">
+                                          <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+                                          <input type="text" class="form-control" id="account-social-linkedin" name="account-social-linkedin" value="<%- user.linkedin %>">
+                                        </div>
+                                      </div><!-- /.form-group -->
+                                    </div><!-- /.form-group -->
+
+                                    <div class="form-group clearfix">
+                                      <button type="submit" class="btn pull-right btn-default" id="account-submit">Save Changes</button>
+                                    </div><!-- /.form-group -->
+                                  </section>
+                                </div>
+                              </div>
+                            </form><!-- /#form-contact -->
+                          </div><!-- /.col-md-9 -->
+
+                                    </div><!-- /.row -->
+                      </div><!-- /.page-profile -->
+                    </section><!-- /#profile -->
+
+                </div>
+
+                <!-- /.block-->
+            <!-- end Page Content-->
+        </div>
+        <!-- end Page Canvas-->
+        <!--Page Footer-->
+          <% include ../import/index-directory-footer.ejs %>
+        <!--end Page Footer-->
+    </div>
+    <!-- end Inner Wrapper -->
+</div>
+<!-- end Outer Wrapper-->
+
+<script type="text/javascript" src="assets/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript" src="assets/js/before.load.js"></script>
+<script type="text/javascript" src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/js/smoothscroll.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap-select.min.js"></script>
+<script type="text/javascript" src="assets/js/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="assets/js/icheck.min.js"></script>
+<script type="text/javascript" src="assets/js/custom.js"></script>
+
+<!--[if lte IE 9]>
+<script type="text/javascript" src="assets/js/ie-scripts.js"></script>
+<![endif]-->
+</body>
+</html>
