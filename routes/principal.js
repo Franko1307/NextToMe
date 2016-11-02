@@ -35,7 +35,8 @@ module.exports = function (app, passport, type, fs) {
   app.get('/register', function(req,res) {
     if (req.isAuthenticated()) { res.redirect('/')}
     else {
-      res.render('pages/register' ,{ errorMessage: req.flash('error'), user: null });
+      var obj = require("../public/assets/json/items.json");
+      res.render('pages/register' ,{ errorMessage: req.flash('error'), user: null,oferta: obj});
     }
   });
   app.get('/sign-out', function(req,res) {

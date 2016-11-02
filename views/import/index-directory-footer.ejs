@@ -6,7 +6,7 @@
                     <div class="col-md-4 col-sm-4">
                         <!--New Items-->
                         <section>
-                            <h2>New Items</h2>
+                            <h2>Ofertas recientes</h2>
                             <% for ( var i = 1; i < 3; ++i) { %>
                               <a href="item-detail.html" class="item-horizontal small">
                                   <h3><%- JSON.stringify(oferta['data'][oferta['data'].length - i].title) %></h3>
@@ -15,8 +15,8 @@
                                       <div class="image"><img src="<%- oferta['data'][i].gallery %>" alt=""></div>
                                       <div class="info">
                                           <div class="type">
-                                              <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-                                              <span>Restaurant</span>
+                                            <span>Restaurant</span>
+                                              <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>                                              
                                           </div>
                                           <div class="rating" data-rating="<%- JSON.stringify(oferta['data'][i].rating) %>"></div>
                                       </div>
@@ -32,33 +32,27 @@
                     </div>
                     <div class="col-md-4 col-sm-4">
                         <section>
-                            <h2>About Us</h2>
+                            <h2>Acerca de nosotros</h2>
                             <address>
-                                <div>Max Five Lounge</div>
-                                <div>63 Birch Street</div>
-                                <div>Granada Hills, CA 91344</div>
+                                <div>Universidad de Sonora</div>
+                                <div>Hermosillo, Sonora</div>
+                                <div>México</div>
                                 <figure>
                                     <div class="info">
-                                        <i class="fa fa-mobile"></i>
-                                        <span>818-832-5258</span>
-                                    </div>
-                                    <div class="info">
-                                        <i class="fa fa-phone"></i>
-                                        <span>+1 123 456 789</span>
-                                    </div>
-                                    <div class="info">
                                         <i class="fa fa-globe"></i>
-                                        <a href="#">www.maxfivelounge.com</a>
+                                        <a href="fran1307.me">fran1307.me</a>
                                     </div>
                                 </figure>
                             </address>
-                            <div class="social">
-                                <a href="#" class="social-button"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="social-button"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="social-button"><i class="fa fa-pinterest"></i></a>
+                            <hr>
+                            <div>
+                              <div>Equipo:</div>
+                              <br>
+                              <div>Francisco Enrique Córdova González</div>
+                              <div>Diego Eugenio Bustamante Rendón</div>
                             </div>
 
-                            <a href="contact.html" class="btn framed icon">Contact Us<i class="fa fa-angle-right"></i></a>
+
                         </section>
                     </div>
                     <!--/.col-md-4-->
@@ -70,7 +64,7 @@
         <!--/.footer-top-->
         <div class="footer-bottom">
             <div class="container">
-                <span class="left">(C) ThemeStarz, All rights reserved</span>
+                <span class="left">Actividad sin fines de lucro, de ámbito estudiantil</span>
                     <span class="right">
                         <a href="#page-top" class="to-top roll"><i class="fa fa-angle-up"></i></a>
                     </span>
