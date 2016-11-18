@@ -611,7 +611,7 @@ function drawModal(json, a){
                         '</div>' +
                     '</div>' +
                     '<div class="modal-footer">' +
-                        '<a href="item-detail.html" class="btn btn-default btn-large">Show Detail</a>' +
+                        '<a href="#" class="btn btn-default btn-large">Show Detail</a>' +
                     '</div>' +
                 '</div>' +
             '</div>' +

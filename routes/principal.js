@@ -43,11 +43,42 @@ module.exports = function (app, passport, type, fs) {
     req.logout();
     res.redirect('/');
   })
+  app.get('/item-detail-:id' ,isAuthenticated,function(req,res) {
+    var obj = require("../public/assets/json/items.json");
+    res.render('pages/item-detail' ,{ errorMessage: req.flash('error'), user: req.user, link: req.query, oferta: obj });
+  })
   app.get('/profile-:username' ,isAuthenticated,function(req,res) {
-    res.render('pages/user' ,{ errorMessage: req.flash('error'), user: req.user, link: req.query });
+    var obj = require("../public/assets/json/items.json");
+    res.render('pages/user' ,{ errorMessage: req.flash('error'), user: req.user, link: req.query, oferta: obj });
   })
   app.get('/items-:username' ,isAuthenticated,function(req,res) {
-    res.render('pages/myitems.ejs' ,{ errorMessage: req.flash('error'), user: req.user, link: req.query });
+    var obj = require("../public/assets/json/items.json");
+    res.render('pages/myitems.ejs' ,{ errorMessage: req.flash('error'), user: req.user, link: req.query, oferta: obj});
+  })
+  app.get('/item-id-:link', function(req,res) {
+    var obj = require("../public/assets/json/items.json");
+    for (var offer in obj["data"])
+      if (obj["data"][offer].hasOwnProperty("link") && obj["data"][offer]["link"] == req.params.link){
+        res.render('pages/item-detail.ejs' ,{ errorMessage: req.flash('error'), user: req.user, link: req.query, oferta: obj["data"][offer]});
+        return
+      }
+
+    res.redirect("/");
+
+  })
+  app.post('/remove-item', isAuthenticated, function(req,res) {
+
+
+    var json = require("../public/assets/json/items.json");
+
+    if (json["data"][req.body.idx]["owner"] != req.user._id) {
+      res.redirect('/items-'+req.user.username);
+      return
+    }
+    json["data"].splice(req.body.idx, 1);
+
+    fs.writeFile('public/assets/json/items.json', JSON.stringify(json));
+    res.redirect('/items-'+req.user.username)
   })
   app.post('/submit', isAuthenticated ,type, function (req,res) {
 
@@ -66,17 +97,32 @@ module.exports = function (app, passport, type, fs) {
     src.pipe(dest);
 
     var json = require("../public/assets/json/items.json");
-    console.log('-------------------------------');
-    console.log(req.body);
+
+
+
+    var date = new Date();
+    var components = [
+      date.getYear(),
+      date.getMonth(),
+      date.getDate(),
+      date.getHours(),
+      date.getMinutes(),
+      date.getSeconds(),
+      date.getMilliseconds()
+    ];
+
+    var ids = components.join("");
 
     var offer = {
       "id": json.data.length + 1,
+      "owner": username,
+      "link": ids,
       "category": "bar_restaurant",
       "title": req.body.title,
       "location": req.body.zip + " " + req.body.street,
       "latitude": req.body.lat,
       "longitude": req.body.lon,
-      "url": "item-detail.html",
+      "url": "/item-id-" + ids,
       "type": "Restaurant",
       "type_icon": "assets/icons/store/apparel/bags.png",
       "rating": 5,
@@ -85,13 +131,7 @@ module.exports = function (app, passport, type, fs) {
       "color": "",
       "item_specific":
           {
-              "menu": "$6.50",
-              "offer1": "Chicken wings",
-              "offer1_price": "4.50",
-              "offer2": "Mushroom ragout",
-              "offer2_price": "3.60",
-              "offer3": "Nice salad with tuna, beans and hard-boiled egg",
-              "offer3_price": "1.20"
+              "menu": req.body['menu-price'][0] + " mxn",
           },
       "oferta": {
         "titulo": req.body['menu-title'][0],
@@ -99,13 +139,11 @@ module.exports = function (app, passport, type, fs) {
         "descripcion:": req.body['menu-description'][0],
       }
     }
-
-
     json['data'].push(offer);
-    console.log(json);
+
     fs.writeFile('public/assets/json/items.json', JSON.stringify(json));
 
-    console.log('mira mama por aqui sigo');
+
     res.redirect('/');
 
 });
