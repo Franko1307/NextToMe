@@ -85,7 +85,9 @@
                                       <input type="hidden" name="idx" value="<%- off %>">
                                       <li><a title="Delete Item" href='#' onclick="document.forms[0].submit();return false;" data-toggle="modal" class="delete-item"><i class="fa fa-trash"></i></a></li>
                                     </form>
-
+                                    <% if (oferta["data"][off].hasOwnProperty("expiration_date")) { %>
+                                      <p>Fecha de expiración: <%-oferta['data'][off].expiration_date%> </p>
+                                    <% } %>
                                   </ul>
                                 <div id="lmDeleteItemWnd" class="modal fade" tabindex="-1" role="dialog">
                                   <div class="modal-dialog modal-sm">

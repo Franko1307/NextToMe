@@ -27,7 +27,10 @@ function createHomepageGoogleMap(_latitude,_longitude,json){
     function gMap(){
         var mapCenter = new google.maps.LatLng(_latitude,_longitude);
         var mapOptions = {
-            zoom: 14,
+            zoom: 15,
+            draggable:true,
+            disableDoubleClickZoom: false,
+            keyboardShortcuts: false,
             center: mapCenter,
             disableDefaultUI: false,
             scrollwheel: false,
@@ -37,7 +40,7 @@ function createHomepageGoogleMap(_latitude,_longitude,json){
                 position: google.maps.ControlPosition.BOTTOM_CENTER
             },
             panControl: false,
-            zoomControl: true,
+            zoomControl: false,
             zoomControlOptions: {
                 style: google.maps.ZoomControlStyle.LARGE,
                 position: google.maps.ControlPosition.RIGHT_TOP
@@ -45,11 +48,16 @@ function createHomepageGoogleMap(_latitude,_longitude,json){
         };
         var mapElement = document.getElementById('map');
         var map = new google.maps.Map(mapElement, mapOptions);
+        var uluru = {lat: _latitude, lng: _longitude};
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
         var newMarkers = [];
         var markerClicked = 0;
         var activeMarker = false;
         var lastClicked = false;
-        console.log(json);
+
         for (var i = 0; i < json.data.length; i++) {
             // Google map marker content -----------------------------------------------------------------------------------
             if( json.data[i].color ) var color = json.data[i].color;

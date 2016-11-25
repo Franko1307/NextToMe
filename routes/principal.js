@@ -110,11 +110,21 @@ module.exports = function (app, passport, type, fs) {
       date.getSeconds(),
       date.getMilliseconds()
     ];
+    var someDate = new Date();
+    var numberOfDaysToAdd = 6;
+    someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
+
+    var dd = someDate.getDate();
+    var mm = someDate.getMonth() + 1;
+    var y = someDate.getFullYear();
+
+    var someFormattedDate = dd + '/'+ mm + '/'+ y;
 
     var ids = components.join("");
 
     var offer = {
       "id": json.data.length + 1,
+      "expiration_date": someFormattedDate,
       "owner": username,
       "link": ids,
       "category": "bar_restaurant",

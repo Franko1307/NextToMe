@@ -130,14 +130,13 @@
                     lat: position.coords.latitude,
                     lng: position.coords.longitude
                   };
+
                   _latitude = pos.lat;
                   _longitude = pos.lng;
-                  createHomepageGoogleMap(_latitude,_longitude,json);
-                  createHomepageFeatured(json);
+                  createHomepageGoogleMap(_latitude,_longitude,json);                  
                 })
               } else {
                 createHomepageGoogleMap(_latitude,_longitude,json);
-                createHomepageFeatured(json);
               }
           })
           .fail(function( jqxhr, textStatus, error ) {
