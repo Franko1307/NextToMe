@@ -3,11 +3,12 @@
         <header><h2>Recientes</h2></header>
         <div class="row">
             <% for (var i = 1; i <= 4; ++i) {%>
+              <% if (oferta['data'][oferta['data'].length-i] != null) {%>
               <div class="col-md-3 col-sm-3">
                   <div class="item featured">
                       <div class="image">
                           <div class="quick-view"><i class="fa glyphicon glyphicon-copyright-mark"></i><span></span></div>
-                          <a href="www.miramama.com">
+                          <a href="#">
                               <div class="overlay">
                                   <div class="inner">
                                       <div class="content">
@@ -24,7 +25,7 @@
                           </a>
                       </div>
                       <div class="wrapper">
-                          <a href="www.miramama.com"><h3><%- oferta['data'][oferta['data'].length-i].title%></h3></a>
+                          <a href="#"><h3><%- oferta['data'][oferta['data'].length-i].title%></h3></a>
                           <figure><%- oferta['data'][oferta['data'].length-i].location%></figure>
                           <div class="info">
                               <div class="type">
@@ -37,6 +38,7 @@
                   </div>
                   <!-- /.item-->
               </div>
+              <% }%>
             <%}%>
 
         </div>

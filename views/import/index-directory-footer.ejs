@@ -8,6 +8,7 @@
                         <section>
                             <h2>Ofertas recientes</h2>
                             <% for ( var i = 1; i < 3; ++i) { %>
+                              <% if (oferta['data'][oferta['data'].length-i] != null) {%>
                               <a href="item-detail.html" class="item-horizontal small">
                                   <h3><%- JSON.stringify(oferta['data'][oferta['data'].length - i].title) %></h3>
                                   <!--<figure>63 Birch Street</figure>-->
@@ -21,6 +22,7 @@
                                       </div>
                                   </div>
                               </a>
+                              <% } %>
                             <% } %>
                         </section>
                         <!--end New Items-->
