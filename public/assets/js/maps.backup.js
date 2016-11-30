@@ -405,7 +405,7 @@ function drawInfobox(category, infoboxContent, json, i){
                         '<div class="wrapper">' +
                             '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">Quick View</a>' +
                             '<hr>' +
-                            '<a href="' + json.data[i].url +  '" class="detail">Go to Detail</a>' +
+                            '<a href="' + json.data[i].url +  '" class="detail">5</a>' +
                         '</div>' +
                     '</div>' +
                     '<a href="' + json.data[i].url +  '" class="description">' +
@@ -432,7 +432,7 @@ function drawInfobox(category, infoboxContent, json, i){
                         '<div class="wrapper">' +
                             '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">Quick View</a>' +
                             '<hr>' +
-                            '<a href="' + json.data[i].url +  '" class="detail">Go to Detail</a>' +
+                            '<a href="' + json.data[i].url +  '" class="detail">5</a>' +
                         '</div>' +
                     '</div>' +
                     '<a href="' + json.data[i].url +  '" class="description">' +
@@ -458,7 +458,7 @@ function drawInfobox(category, infoboxContent, json, i){
                         '<div class="wrapper">' +
                             '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">Quick View</a>' +
                             '<hr>' +
-                            '<a href="' + json.data[i].url +  '" class="detail">Go to Detail</a>' +
+                            '<a href="' + json.data[i].url +  '" class="detail">5</a>' +
                         '</div>' +
                     '</div>' +
                     '<a href="' + json.data[i].url +  '" class="description">' +

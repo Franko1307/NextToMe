@@ -111,7 +111,7 @@ module.exports = function (app, passport, type, fs) {
       date.getMilliseconds()
     ];
     var someDate = new Date();
-    var numberOfDaysToAdd = 6;
+    var numberOfDaysToAdd = 7;
     someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
 
     var dd = someDate.getDate();

@@ -72,8 +72,8 @@ root.find({}, function(err, users) {
 var admin = new root();
 
 admin.username = 'admin';
-admin.password = createHash('PingyBurrito_903');
-admin.email = 'franciscogonzalez1307@gmail.com';
+admin.password = createHash('password');
+admin.email = 'example@gmail.com';
 admin.role = 'admin';
 
 console.log(mongoose.models);

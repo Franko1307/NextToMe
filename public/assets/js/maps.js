@@ -586,7 +586,7 @@ function pushItemsToArray(json, a, category, visibleItemsArray){
     visibleItemsArray.push(
         '<li>' +
             '<div class="item" id="' + json.data[a].id + '">' +
-                '<a href="#" class="image">' +
+                '<a href="' +json.data[a].url + '" class="image">' +
                     '<div class="inner">' +
                         '<div class="item-specific">' +
                             drawItemSpecific(category, json, a) +
@@ -595,14 +595,14 @@ function pushItemsToArray(json, a, category, visibleItemsArray){
                     '</div>' +
                 '</a>' +
                 '<div class="wrapper">' +
-                    '<a href="#" id="' + json.data[a].id + '"><h3>' + json.data[a].title + '</h3></a>' +
+                    '<a href="'+json.data[a].url+'" id="' + json.data[a].id + '"><h3>' + json.data[a].title + '</h3></a>' +
                     '<figure>' + json.data[a].location + '</figure>' +
                     drawPrice(json.data[a].price) +
                     '<div class="info">' +
                         '<div class="type">' +
                             '<i><img src="' + json.data[a].type_icon + '" alt=""></i>' +
                             '<span>' + json.data[a].type + '</span>' +
-                        '</div>' +                      
+                        '</div>' +
                     '</div>' +
                 '</div>' +
             '</div>' +

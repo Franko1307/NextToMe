@@ -394,6 +394,7 @@ function contactMap(_latitude, _longitude){
 
 function drawInfobox(category, infoboxContent, json, i){
     // Real Estate Infobox ---------------------------------------------------------------------------------------------
+    console.log('aqui ando mij3');
     if( category == 'real_estate' ){
         infoboxContent.innerHTML =
         '<div class="infobox real_estate ' + json.data[i].color + '">' +
@@ -408,9 +409,9 @@ function drawInfobox(category, infoboxContent, json, i){
                     '</div>' +
                     '<div class="overlay">' +
                         '<div class="wrapper">' +
-                            '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">Quick View</a>' +
+                            '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">View</a>' +
                             '<hr>' +
-                            '<a href="' + json.data[i].url +  '" class="detail">Go to Detail</a>' +
+                            '<a href="' + json.data[i].url +  '" class="detail">Ver a Detalle</a>' +
                         '</div>' +
                     '</div>' +
                     '<a href="' + json.data[i].url +  '" class="description">' +
@@ -428,6 +429,7 @@ function drawInfobox(category, infoboxContent, json, i){
     }
     // Bar & Restaurant Infobox ----------------------------------------------------------------------------------------
     else if( category == 'bar_restaurant' ){
+      console.log('aqui ando mijo2');
         infoboxContent.innerHTML =
         '<div class="infobox bar_restaurant ' + json.data[i].color + '">' +
             '<div class="inner">' +
@@ -435,9 +437,8 @@ function drawInfobox(category, infoboxContent, json, i){
                     '<div class="price"><strong>Daily Menu: </strong>$' + json.data[i].price +  '</div>'+
                     '<div class="overlay">' +
                         '<div class="wrapper">' +
-                            '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">Quick View</a>' +
                             '<hr>' +
-                            '<a href="' + json.data[i].url +  '" class="detail">Go to Detail</a>' +
+                            '<a href="' + json.data[i].url +  '" class="detail">Ver a Detalle</a>' +
                         '</div>' +
                     '</div>' +
                     '<a href="' + json.data[i].url +  '" class="description">' +
@@ -455,15 +456,15 @@ function drawInfobox(category, infoboxContent, json, i){
     }
     // Other Infobox ---------------------------------------------------------------------------------------------------
     else {
+        console.log('aqui ando mijo');
         infoboxContent.innerHTML =
         '<div class="infobox ' + json.data[i].color + '">' +
             '<div class="inner">' +
                 '<div class="image">' +
                     '<div class="overlay">' +
                         '<div class="wrapper">' +
-                            '<a href="#" class="quick-view" data-toggle="modal" data-target="#modal" id="' + json.data[i].id + '">Quick View</a>' +
                             '<hr>' +
-                            '<a href="' + json.data[i].url +  '" class="detail">Go to Detail</a>' +
+                            '<a href="' + json.data[i].url +  '" class="detail">Ver a detalle</a>' +
                         '</div>' +
                     '</div>' +
                     '<a href="' + json.data[i].url +  '" class="description">' +
