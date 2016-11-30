@@ -123,8 +123,8 @@
                                 <section>
                                     <h3>Mapa</h3>
                                     <div id="map-simple" class="map-submit"></div>
-                                    <input id = 'lat' type="text" name="lat" value="holo">
-                                    <input id = 'lon' type="text" name="lon" value="holo">
+                                    <input id = 'lat' type="hidden" name="lat" value="">
+                                    <input id = 'lon' type="hidden" name="lon" value="">
                                 </section>
                                 <!--Menu-->
                                 <section>
@@ -409,7 +409,7 @@
             lng: position.coords.longitude
           };
           _latitude = pos.lat;
-          _longitude = pos.lng;          
+          _longitude = pos.lng;
           var draggableMarker = true;
           simpleMap(_latitude, _longitude,draggableMarker);
         })
