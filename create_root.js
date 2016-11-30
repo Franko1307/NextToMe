@@ -61,7 +61,7 @@ var root = mongoose.model('User', UserSchema);
 root.find({}, function(err, users) {
     users.forEach(function(user) {
       user.remove(function(err,removed) {
-        console.log('removido nigga');
+        console.log('Removiendo');
       });
     });
 
@@ -76,13 +76,12 @@ admin.password = createHash('password');
 admin.email = 'example@gmail.com';
 admin.role = 'admin';
 
-console.log(mongoose.models);
 
 admin.save(function (err, admin) {
   if (err) {
     return console.error(err);
   }
   else {
-    console.log('YEEI');
+    console.log('Admin guardado');
   }
 });
