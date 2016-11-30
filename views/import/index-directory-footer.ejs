@@ -12,13 +12,12 @@
                                   <h3><%- JSON.stringify(oferta['data'][oferta['data'].length - i].title) %></h3>
                                   <!--<figure>63 Birch Street</figure>-->
                                   <div class="wrapper">
-                                      <div class="image"><img src="<%- oferta['data'][i].gallery %>" alt=""></div>
+                                      <div class="image"><img src="<%- oferta['data'][oferta['data'].length - i].gallery %>" alt=""></div>
                                       <div class="info">
                                           <div class="type">
                                             <span>Restaurant</span>
-                                              <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>                                              
+                                              <i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
                                           </div>
-                                          <div class="rating" data-rating="<%- JSON.stringify(oferta['data'][i].rating) %>"></div>
                                       </div>
                                   </div>
                               </a>
